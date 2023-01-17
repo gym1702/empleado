@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block tituloweb %}
+    Eliminar 
+{% endblock tituloweb %}
+
+
+{% block contenido %}
+    
+<div class="row">
+    <div class="container-sm col-4">
+        <div class="card text-center mt-5">
+
+            <div class="card-header">
+                <h2>Eliminar departamento</h2>
+            </div>
+
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    
+                    <h6>¿Confirmar eliminacion?</h6>
+                    <button type="submit" class="btn btn-danger mt-3">Confirmar</button>
+                    <a href="{% url 'departamento_app:listar' %}" class="btn btn-secondary mt-3">Cancelar</a>
+                </form>
+            </div>  
+              
+        </div>
+    </div> 
+</div>  
+
+{% endblock contenido %}
+
+
+

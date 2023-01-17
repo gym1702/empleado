@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block tituloweb %}
+    Empleados por departamento
+{% endblock tituloweb %}
+
+
+{% block contenido %}
+
+<br>
+<div class="container-fluid container-md">
+    <div class="card">
+
+        <div class="card-header">
+            <div>
+                <h3>Listado de empleados por departamento</h3>
+            </div>
+            <!-- <div>
+                <a href="" class="btn btn-primary">Agregar</a>
+            </div> -->            
+        </div>
+
+        <div class="card-body">
+
+            <!-- BUSQUEDA -->
+            <!-- <form class="row" method="get">
+                {% csrf_token %}
+
+                <div class="col-4">
+                    <input type="text" name="valor" id="valor" class="form-control mb-3" placeholder="Ingese nombre o apellido ">           
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-primary" type="submit">Buscar</button> 
+                </div>
+            </form> -->
+
+            <!-- TABLA -->
+            <table id="tabla" name="tabla" class="table table-striped table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Departamento</th>
+                        <!-- <th>Acciones</th> -->
+                    </tr>
+                </thead>
+                <tbody>                  
+                    {% for emp in obj %}
+                    <tr>       
+                        <th>{{emp.id}}</th>                 
+                        <th>{{emp.full_name}}</th>
+                        <th>{{emp.job}}</th>
+                        <th>{{emp.department}}</th>
+                        <!-- <th>
+                            <a href="{% url 'empleado_app:detalle' emp.id %}" class="btn btn-secondary btn-sm"><i class="fa fa-eye"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-pen"></i></a>
+                            <a href="{% url 'empleado_app:eliminar' emp.id %}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        </th> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- PAGINACION -->
+            {% if is_paginated %}
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                        </li>
+                    {% endif %}                        
+                    
+                    {% for pagina in paginator.page_range %}                         
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ pagina }}">{{ pagina }}</a>
+                        </li> 
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                        </li>
+                    {% endif %} 
+                </ul>
+            </nav>
+            {% endif %}
+
+        </div>
+
+        <div class="card-footer">
+            <div align="right">
+                <a href="{% url 'departamento_app:listar' %}" class="btn btn-primary">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+    
+{% endblock contenido %}

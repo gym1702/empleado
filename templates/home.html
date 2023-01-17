@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block tituloweb %}
+Inicio
+{% endblock tituloweb %}
+
+
+{% block contenido %}
+
+<!-- CARRUSEL DE IMAGENES -->
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/img/emp02.jpg" height="600" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="/static/img/emp03.jpg" height="600" class="d-block w-100" alt="">
+        </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next carousel-red" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<br>
+<br>
+
+
+<!-- BLOQUE BIENVENIDA -->
+<div class="">
+    <h1 class="text-center">Bienvenido al sistema de registro de empleados</h1>
+    <br>
+    <br>
+
+    <div align="center">
+        <div class="alert alert-success align-text-left" role="alert" style="width: 70%;">
+
+            <h4>Registra y controla empleados</h4>
+
+            <h6>Using color to add meaning only provides a visual indication, which will not be conveyed
+                 to users of assistive technologies – such as screen readers. Ensure that information 
+                 denoted by the color is either obvious from the content itself (e.g. the visible text),
+                  or is included through alternative means, such as additional text hidden with the .
+                  visually-hidden class.
+            </h6>
+            <br>
+
+            <a href="{% url 'empleado_app:listar' %}" class="btn btn-primary">Ver empleados</a>
+        </div>
+    </div>
+</div> 
+
+
+
+{% endblock contenido %}

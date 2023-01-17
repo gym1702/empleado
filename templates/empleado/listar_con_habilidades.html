@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar empleado con sus habilidades</title>
+</head>
+<body>
+    <h1>Listar empleado con sus habilidades</h1>
+
+    <form action="" method="get">
+        {% csrf_token %}
+
+        <input type="text" id="kword" name="kword" placeholder="Número del empleado">
+        <button type="submit">
+            Buscar
+        </button>
+    </form>
+  
+    <h3>Habilidades</h3>        
+
+    <ul>            
+        {% for hab in obj %}
+            <li>                
+                {{ hab }}
+            </li>
+        {% endfor %}                
+    </ul>
+    
+    
+</body>
+</html>

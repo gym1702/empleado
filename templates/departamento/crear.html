@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block tituloweb %}
+    Crear departamento
+{% endblock tituloweb %}
+
+
+{% block contenido %}
+
+<div class="row">
+    <div class="container-sm col-6">
+        <div class="card mt-5">
+
+            <div class="card-header">
+                <h2>Crear departamento</h2>
+            </div>
+
+            
+            <form class="form-control" action="" method="post">                
+                
+                <br>
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Nombre</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="col-6">
+                        <label for="">Nombre corto</label>
+                        {{ form.short_name }}
+                    </div>
+                </div>
+                <br>
+                    <!-- {{ form.as_p}} -->
+                    
+                <div align="right">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="{% url 'departamento_app:listar' %}" class="btn btn-secondary">Cancelar</a>
+                </div> 
+                <br>
+
+            </form>
+              
+        </div>
+    </div> 
+</div>  
+<br>
+<br>
+<br>
+
+{% endblock contenido %}

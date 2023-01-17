@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block tituloweb %}
+    Crear empleado 
+{% endblock tituloweb %}
+
+
+{% block contenido %}
+
+<div class="row">
+    <div class="container-sm col-6">
+        <div class="card mt-5">
+
+            <div class="card-header">
+                <h2>Crear empleado</h2>
+            </div>
+
+            
+            <form class="form-control" action="" method="post" enctype="multipart/form-data">                
+                <br>
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Nombre(s)</label>
+                        {{form.first_name}}
+                    </div>
+                    <div class="col-6">
+                        <label for="">Apellido(s)</label>
+                        {{form.last_name}}
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Puesto</label>
+                        {{form.job}}
+                    </div>
+                    <div class="col-6">
+                        <label for="">Departamento</label>
+                        {{form.department}}
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Habilidades</label>
+                        {{form.habilidades}}
+                    </div>
+                    <div class="col-6">
+                        <label for="">Hoja de vida</label>
+                        {{form.hoja_vida}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Imagen</label>
+                        <div>
+                            <img src="{{ obj.image.url }}" class="img-profile" alt="Imagen del empleado" style="width:60px; height:60px; ">
+                        </div>
+                        {{form.image}}
+                    </div>
+                </div>
+                
+                    <!-- {{ form.as_p}} -->
+                
+
+                <div align="right">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="{% url 'empleado_app:listar' %}" class="btn btn-secondary">Cancelar</a>
+                </div> 
+            </form>
+              
+        </div>
+    </div> 
+</div>  
+<br>
+<br>
+<br>
+
+{% endblock contenido %}

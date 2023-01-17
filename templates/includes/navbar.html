@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary">
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="/static/bootstrap_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Empleados  &nbsp &nbsp &nbsp &nbsp;
+          </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'empleado_app:listar' %}">Empleados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'departamento_app:listar' %}">Departamentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'departamento_app:crear_depto_emp' %}">Departamento con empleado</a>
+                </li>
+
+            </ul>
+            
+            <!-- <form class="d-flex" role="search">                      
+                <input class="form-control me-3" type="search" placeholder="Buscar empleado" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            </form> -->
+        </div>
+    </div>
+
+</nav>
